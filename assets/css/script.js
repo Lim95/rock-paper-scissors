@@ -5,12 +5,15 @@ var SCISSORS = 2;
 var LOSE = 0;
 var WIN = 1;
 var TIE = 2;
+var bFlag = true;
 var TRUTHTABLE = [
   //ROCK PAPER SCISSORS - COMP
   [TIE, LOSE, WIN], // PLAYER ROCK
   [WIN, TIE, LOSE], // PLAYER PAPER
   [LOSE, WIN, TIE]  // PLAYER SCISSORS
 ];
+var playerRecord = {playerWins: 0, playerLosses: 0, playerTies: 0};
+
 // Get references to the #generate element
 var generateBtn = document.querySelector("#play");
 // Add event listener to generate button
@@ -44,27 +47,45 @@ function changeImage(player, comp) {
 function printResult(result) {
   switch(result){
     case WIN:
-      document.getElementById("test-text").innerHTML="win";
+      document.getElementById("result").innerHTML="YOU WIN";
+      document.getElementById("wins").innerHTML=playerRecord.playerWins.toString();
       break;
     case LOSE:
-      document.getElementById("test-text").innerHTML="lose";
+      document.getElementById("result").innerHTML="YOU LOST";
+      document.getElementById("losses").innerHTML=playerRecord.playerLosses.toString();
       break;
     case TIE:
-      document.getElementById("test-text").innerHTML="tie";
+      document.getElementById("result").innerHTML="YOU TIED";
+      document.getElementById("ties").innerHTML=playerRecord.playerTies.toString();
       break;
     default:
       break;  
   }
 };
-// Write password to the #password input
+
+function saveResults (result){
+  switch(result) {
+    case WIN:
+      playerRecord.playerWins += 1;
+      break;
+    case LOSE:
+      playerRecord.playerLosses += 1;
+      break;
+    case TIE:
+      playerRecord.playerTies += 1;
+      break;
+    default:
+      break;
+  }
+};
+
+
 function playGame() {
   var player = rockPaperScissors();
   var comp = rockPaperScissors();
   var result = TRUTHTABLE[player][comp];
   changeImage(player, comp);
+  saveResults(result);
   printResult(result);
-  console.log(player);
-  console.log(comp);
-  console.log(result);
-
+  console.log(playerRecord.playerLosses);
 };

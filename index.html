@@ -21,14 +21,15 @@
     </section>
 
     <!-- images -->
-    <section class="play-images">
-      <div class="images">
-        <img id="player-image-id"src="./assets/images/before-play.png" alt="" />
+    <section class="images-wrapper">
+      <div class="images-container">
+        <div class="images">
+          <img id="player-image-id"src="./assets/images/before-play.png" alt="" width="100%" height="100%"/>
+        </div>
+        <div class="images">
+          <img id="comp-image-id" src="./assets/images/before-play.png" alt="" width="100%" height="100%"/>
+        </div>
       </div>
-      <div class="images">
-        <img id="comp-image-id" src="./assets/images/before-play.png" alt="" />
-      </div>
-
     </section>
 
     <!-- button -->
@@ -37,10 +38,16 @@
     </section>
 
     <!-- result -->
-    <section>
-      <p id="test-text">
-        xd
-      </p>
+    <section class="results-table-wrapper">
+      <div class="results-table-container">
+        <div id="result" class="grid-items results">results</div>
+        <div class="grid-items total-wins-title">Total wins:</div>
+        <div id="wins" class="grid-items total-wins">0</div>
+        <div class="grid-items total-losses-title">Total losses:</div>
+        <div id="losses" class="grid-items total-losses">0</div>
+        <div class="grid-items total-ties-title">Total ties:</div>
+        <div id="ties" class="grid-items total-ties">0</div>
+      </div>
     </section>
     <script src="./assets/css/script.js"></script>
   </body>
